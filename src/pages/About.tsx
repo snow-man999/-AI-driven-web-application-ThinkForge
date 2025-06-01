@@ -1,4 +1,3 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Github, Linkedin, Mail, Code, Lightbulb } from 'lucide-react';
@@ -91,13 +90,13 @@ const About = () => {
                     <span className="text-gray-300">Ksparth12@gmail.com</span>
                   </a>
                   <a 
-                    href="https://linkedin.com/in/ksparth12"
+                    className="flex items-center gap-2 text-gray-300 hover:text-blue-400 transition-colors"
+                    href="https://linkedin.com/in/ksparth128"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 glass rounded-xl px-4 py-3 hover:bg-white/10 transition-colors"
                   >
                     <Linkedin className="w-5 h-5 text-blue-400" />
-                    <span className="text-gray-300">ksparth12</span>
+                    LinkedIn
                   </a>
                   <a 
                     href="https://github.com/ksparth12"

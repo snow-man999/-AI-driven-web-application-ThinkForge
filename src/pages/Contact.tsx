@@ -144,13 +144,13 @@ const Contact = () => {
                       </div>
                       <div>
                         <p className="text-gray-300 text-sm">LinkedIn</p>
-                        <a 
-                          href="https://linkedin.com/in/ksparth12" 
+                        <a
+                          className="text-white font-medium hover:text-blue-400 transition-colors"
+                          href="https://linkedin.com/in/ksparth128"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-white hover:text-blue-400 transition-colors"
                         >
-                          linkedin.com/in/ksparth12
+                          linkedin.com/in/ksparth128
                         </a>
                       </div>
                     </div>
