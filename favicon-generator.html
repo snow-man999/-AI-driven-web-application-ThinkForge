@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ThinkForge Favicon Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    canvas {
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    a {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ThinkForge Favicon Generator</h1>
+  <p>This page generates a favicon for ThinkForge.</p>
+  
+  <canvas id="canvas" width="32" height="32"></canvas>
+  <br>
+  <button id="generate">Generate Favicon</button>
+  <br>
+  <a id="download" download="favicon.ico">Download favicon.ico</a>
+  
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const downloadLink = document.getElementById('download');
+    
+    function drawFavicon() {
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Create gradient background
+      const gradient = ctx.createLinearGradient(0, 0, 32, 32);
+      gradient.addColorStop(0, '#9333ea'); // Purple
+      gradient.addColorStop(1, '#3b82f6'); // Blue
+      
+      // Draw rounded rectangle
+      ctx.fillStyle = gradient;
+      ctx.beginPath();
+      ctx.moveTo(4, 0);
+      ctx.lineTo(28, 0);
+      ctx.arcTo(32, 0, 32, 4, 4);
+      ctx.lineTo(32, 28);
+      ctx.arcTo(32, 32, 28, 32, 4);
+      ctx.lineTo(4, 32);
+      ctx.arcTo(0, 32, 0, 28, 4);
+      ctx.lineTo(0, 4);
+      ctx.arcTo(0, 0, 4, 0, 4);
+      ctx.closePath();
+      ctx.fill();
+      
+      // Draw diamond shape
+      ctx.fillStyle = 'white';
+      ctx.beginPath();
+      ctx.moveTo(16, 8);  // Top
+      ctx.lineTo(8, 16);  // Left
+      ctx.lineTo(16, 24); // Bottom
+      ctx.lineTo(24, 16); // Right
+      ctx.closePath();
+      ctx.fill();
+      
+      // Draw lines
+      ctx.strokeStyle = '#9333ea';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(16, 8);  // Top to center
+      ctx.lineTo(16, 16);
+      ctx.moveTo(16, 16); // Center to bottom
+      ctx.lineTo(16, 24);
+      ctx.moveTo(16, 16); // Center to left
+      ctx.lineTo(8, 16);
+      ctx.moveTo(16, 16); // Center to right
+      ctx.lineTo(24, 16);
+      ctx.stroke();
+      
+      // Update download link
+      downloadLink.href = canvas.toDataURL('image/png');
+    }
+    
+    document.getElementById('generate').addEventListener('click', drawFavicon);
+    
+    // Generate on load
+    drawFavicon();
+  </script>
+</body>
+</html> 
