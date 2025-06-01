@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -50,6 +49,9 @@ const Auth = () => {
         toast.success('Successfully logged in!');
         navigate('/dashboard');
       } else {
+        // Get the current site URL
+        const siteUrl = window.location.origin;
+        
         const { data, error } = await supabase.auth.signUp({
           email: formData.email,
           password: formData.password,
@@ -57,14 +59,14 @@ const Auth = () => {
             data: {
               full_name: formData.fullName,
             },
-            emailRedirectTo: undefined // Skip email verification
+            emailRedirectTo: 'https://think-forge-mu.vercel.app/auth'
           }
         });
 
         if (error) throw error;
         
-        toast.success('Account created successfully!');
-        navigate('/dashboard');
+        toast.success('Account created successfully! Please check your email to confirm your account.');
+        // Don't navigate to dashboard yet since they need to confirm email first
       }
     } catch (error: any) {
       toast.error(error.message || 'An error occurred');
