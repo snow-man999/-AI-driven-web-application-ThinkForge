@@ -105,6 +105,13 @@ ThinkForge serves as an innovative idea generator for projects, with a strong fo
    cp .env.example .env
    # Edit .env with your API keys and configuration
    ```
+   
+   **Important:** You must set up the following environment variables in your `.env` file:
+   - `VITE_SUPABASE_URL`: Your Supabase project URL (e.g., https://your-project-id.supabase.co)
+   - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+   - `VITE_GEMINI_API_KEY`: Your Google Gemini API key
+   
+   Without these environment variables, the application will display an error message.
 
 4. Start the development server
    ```bash
